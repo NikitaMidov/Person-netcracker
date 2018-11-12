@@ -1,0 +1,379 @@
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1542035984000)
++++ .idea/compiler.xml	(date 1542035984000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="Netcrecker4" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1542035984000)
++++ .idea/misc.xml	(date 1542035984000)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" project-jdk-name="10" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1542035984000)
++++ .idea/vcs.xml	(date 1542035984000)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: Netcrecker4.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Netcrecker4.iml	(date 1542035984000)
++++ Netcrecker4.iml	(date 1542035984000)
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4" />
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(date 1542035984000)
++++ pom.xml	(date 1542035984000)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++
++    <groupId>Netcrecker4</groupId>
++    <artifactId>Netcrecker4</artifactId>
++    <version>1.0-SNAPSHOT</version>
++
++    <dependencies>
++        <dependency>
++            <groupId>joda-time</groupId>
++            <artifactId>joda-time</artifactId>
++            <version>2.9.9</version>
++        </dependency>
++    </dependencies>
++
++</project>
+\ No newline at end of file
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/Main.java	(date 1542035984000)
++++ src/main/java/Main.java	(date 1542035984000)
+@@ -0,0 +1,12 @@
++/**
++ * Класс <b>Main</b>.
++ * @author Никита Мидов
++ */
++
++public class Main {
++
++    public static void main(String[] args) {
++        Starter starter = new Starter();
++        starter.run();
++    }
++}
+\ No newline at end of file
+Index: src/main/java/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/Person.java	(date 1542035984000)
++++ src/main/java/Person.java	(date 1542035984000)
+@@ -0,0 +1,83 @@
++import org.joda.time.LocalDate;
++import org.joda.time.Years;
++
++/**
++ * Класс <b>Person</b> с полями <b>fullName</b>, <b>dateOfBirth</b>, <b>age</b> и <b>id</b>.
++ * @author Никита Мидов
++ */
++
++public class Person {
++    Repository repository = new Repository();
++    /** Поле ФИО*/
++    private String fullName;
++
++    /** Поле дата рождения*/
++    private int[] dateOfBirth = new int[3];
++
++    /** Поле возраст*/
++    private int age;
++
++    /** Поле ID*/
++    private int id;
++
++    /**
++     * Функция получения значения поля {@link Person#fullName}
++     * @return возвращает ФИО человека
++     */
++    public String getFullName() {
++        return fullName;
++    }
++
++    /**
++     * Функция получения значения поля {@link Person#dateOfBirth}
++     * @return возвращает дату рождения человека
++     */
++    public int[] getDateOfBirth() {
++        return dateOfBirth;
++    }
++
++    /**
++     * Функция получения значения поля {@link Person#id}
++     * @return возвращает ID человека
++     */
++    public int getId() {
++        return id;
++    }
++
++    /**
++     * Функция получения значения поля {@link Person#age}
++     * @return возвращает возраст человека
++     */
++    public int getAge() {
++        LocalDate birthdate = new LocalDate (dateOfBirth[2], dateOfBirth[1], dateOfBirth[0]);
++        LocalDate now = new LocalDate();
++        Years years = Years.yearsBetween(birthdate, now);
++        age = years.getYears();
++        return age;
++    }
++
++    /**
++     * Функция определения значения поля {@link Person#fullName}
++     * @param fullName определяет ФИО человека
++     */
++    public void setFullName(String fullName) {
++        this.fullName = fullName;
++    }
++
++    /**
++     * Функция определения значения поля {@link Person#dateOfBirth}
++     * @param dateOfBirth определяет дату рождения человека
++     */
++    public void setDateOfBirth(int[] dateOfBirth) {
++        this.dateOfBirth = dateOfBirth;
++    }
++
++    /**
++     * Функция определения значения поля {@link Person#id}
++     * @param id определяет ID человека
++     */
++    public void setId(int id) {
++        this.id = id;
++    }
++
++}
+\ No newline at end of file
+Index: src/main/java/Repository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/Repository.java	(date 1542035984000)
++++ src/main/java/Repository.java	(date 1542035984000)
+@@ -0,0 +1,66 @@
++/**
++ * Класс <b>Repository</b> с полями <b>persons</b> и <b>numberOfPersons</b>
++ * @author Никита Мидов
++ */
++
++public class Repository {
++    /** Поле, которое хранит объекты людей в репозитории*/
++    private Person[] persons = new Person[10];
++
++    /** Поле количество людей в репозитории*/
++    private int numberOfPersons = 0;
++
++    /**
++     * Функция получения значения поля {@link Repository#persons}
++     * @return возвращает объект человека
++     */
++    public Person[] getPersons() {
++        return persons;
++    }
++
++    /**
++     * Функция добавления человека в репозиторий {@link Repository#persons}
++     * @param person - человек
++     */
++    public void add (Person person){
++        if(persons.length - 1 == numberOfPersons){
++            resize(persons.length*2);
++        }
++        persons[numberOfPersons] = person;
++        numberOfPersons++;
++    }
++
++    /**
++     * Функция расширения репозитория {@link Repository#persons}
++     * @param newLenght - новый размер репозитория
++     */
++    private void resize(int newLenght){
++        Person[] newPersons = new Person[newLenght];
++        System.arraycopy(persons, 0, newPersons, 0, numberOfPersons);
++        persons = newPersons;
++    }
++
++    /**
++     * Функция получения значения поля {@link Repository#numberOfPersons}
++     * @return возвращает количество людей в репозитории
++     */
++    public int size(){
++        return numberOfPersons;
++    }
++
++    /**
++     * Функция удаления человека из репозитория {@link Repository#persons}
++     * @param id - ID человека, которого нужно удалить
++     */
++    public void remove(int id){
++        int position = id;
++        for (int i = position; i <numberOfPersons ; i++) {
++            persons[i] = persons[i+1];
++        }
++        persons[numberOfPersons] = null;
++        numberOfPersons--;
++    }
++
++
++
++}
+\ No newline at end of file
+Index: src/main/java/Starter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/Starter.java	(date 1542035984000)
++++ src/main/java/Starter.java	(date 1542035984000)
+@@ -0,0 +1,83 @@
++import java.util.Scanner;
++/**
++ * Класс <b>Starter</b> с полями <b>exit</b>
++ * @author Никита Мидов
++ */
++
++public class Starter {
++    Person person = new Person();
++    Repository repository = new Repository();
++    Scanner in = new Scanner(System.in);
++
++    /** Поле выход*/
++    boolean exit = false;
++
++    /**
++     * Функция запускающая меню для выбора нужных действий
++     */
++    public void run(){
++        menu();
++        while(!exit) {
++            int menuInput = in.nextInt();
++            in.nextLine();
++            if (menuInput == 1) {
++                Person newPerson = new Person();
++                newPerson.setId(repository.size());
++                System.out.print("Введите ФИО человека: ");
++                String fullName = in.nextLine();
++                newPerson.setFullName(fullName);
++                System.out.print("Введите дату рождения человека: ");
++                newPerson.setDateOfBirth(dateOfBirth());
++                repository.add(newPerson);
++            }
++            else if (menuInput == 2) {
++                System.out.print("Введите ID человека, которого вы хотите удалить из репозитория: ");
++                repository.remove(in.nextInt());
++            }
++            else if (menuInput == 3) {
++                if (repository.size() == 0) {
++                    System.out.println("В репозитории 0 человек");
++                }
++                else {
++                    for (int i = 0; i < repository.size(); i++) {
++                        System.out.println("ID: " + repository.getPersons()[i].getId() + " ФИО: "
++                                + repository.getPersons()[i].getFullName());
++                    }
++                }
++            }
++            else if(menuInput == 4){
++                System.out.print("Введите ID человека, возраст которого вы хотите узнать: ");
++                int tempId = in.nextInt();
++                System.out.println("Возраст: " + repository.getPersons()[tempId].getAge());
++            }
++            else if(menuInput == 5){
++                exit = true;
++            }
++        }
++
++    }
++
++    /**
++     * Функция, которая показывает возможные действия в меню
++     */
++    private void menu(){
++        System.out.println("1. Добавить человека в репозиторий");
++        System.out.println("2. Удалить человека из репозитрия");
++        System.out.println("3. Посмотреть список людей находящихся в репозитории");
++        System.out.println("4. Посмотреть возраст человека");
++        System.out.println("5. Выход");
++    }
++
++    /**
++     * Фунция заполнения даты рождения консольным вводом в массив
++     * @return intDate - возвращает дату рождения в виде массива
++     */
++    private int[] dateOfBirth(){
++        String[] date = in.nextLine().split(" ");
++        int[] intDate = new int[date.length];
++        for (int i = 0; i < date.length; i++) {
++            intDate[i] = Integer.parseInt(date[i]);
++        }
++        return intDate;
++    }
++}
+\ No newline at end of file
